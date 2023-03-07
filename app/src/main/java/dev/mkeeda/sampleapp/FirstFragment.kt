@@ -5,17 +5,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navGraphViewModels
+import dagger.hilt.android.AndroidEntryPoint
 import dev.mkeeda.sampleapp.databinding.FragmentFirstBinding
 import java.util.UUID
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
+@AndroidEntryPoint
 class FirstFragment : Fragment() {
 
-    private val sharedViewModel: SharedViewModel by navGraphViewModels(R.id.nav_graph)
+    private val sharedViewModel: SharedViewModel by hiltNavGraphViewModels(R.id.nav_graph)
 
     private var _binding: FragmentFirstBinding? = null
 
